@@ -1,7 +1,5 @@
 package site.nomoreparties.stellarburgers.auth;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import io.qameta.allure.Step;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
@@ -12,8 +10,7 @@ import site.nomoreparties.stellarburgers.pojo.UserDTO;
 import static org.hamcrest.CoreMatchers.equalTo;
 
 
-public class ChangeDataTest extends AuthBaseTest{
-    Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
+public class ChangeUserDataTest extends AuthBaseTest{
 
     @Before
     public void createUser() {

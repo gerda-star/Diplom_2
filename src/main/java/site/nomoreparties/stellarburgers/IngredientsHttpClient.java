@@ -2,11 +2,11 @@ package site.nomoreparties.stellarburgers;
 
 import io.restassured.response.ValidatableResponse;
 
-public class IngredientsHttpClass  extends BaseHttpClient {
+public class IngredientsHttpClient extends BaseHttpClient {
 
     private final String url;
 
-    public IngredientsHttpClass(String url) {
+    public IngredientsHttpClient(String url) {
         super();
         this.url = url + "ingredients/";
     }

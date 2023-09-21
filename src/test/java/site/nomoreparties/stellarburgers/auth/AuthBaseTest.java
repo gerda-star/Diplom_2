@@ -31,10 +31,11 @@ public class AuthBaseTest {
         return new UserDTO(email, password, name);
     }
 
-    @Step("Создание пользователя и сохраняем токен: post запрос к ендпоинту auth/register")
-    public void createUser(UserDTO userDTO) {
+    @Step("Создание пользователя: post запрос к ендпоинту auth/register")
+    public String createUser(UserDTO userDTO) {
         response = authHttpClient.register(userDTO);
         token = response.extract().path("accessToken").toString();
+        return token;
     }
 
     @Step("Удаление созданного пользователя: delete запрос к ендпоинту auth/user")

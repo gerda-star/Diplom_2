@@ -27,14 +27,23 @@ abstract class BaseHttpClient {
                 .build();
     }
 
+
+    public ValidatableResponse doGetRequest(String url ) {
+        return given(baseRequest()).get(url).then();
+    }
+    public ValidatableResponse doGetRequest(String url, String token ) {
+        RequestSpecification request = given(baseRequestWithToken(token));
+        return request.get(url).then();
+    }
     public ValidatableResponse doPostRequest(String url, Object body) {
         RequestSpecification request = given(baseRequest());
         request.body(body);
         return request.post(url).then();
     }
-    public ValidatableResponse doGetRequest(String url, String token ) {
+    public ValidatableResponse doPostRequest(String url, Object body, String token) {
         RequestSpecification request = given(baseRequestWithToken(token));
-        return request.get(url).then();
+        request.body(body);
+        return request.post(url).then();
     }
 
     public ValidatableResponse doDeleteRequest(String url, String token ) {
